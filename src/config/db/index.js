@@ -10,7 +10,7 @@ const option = {
 
 async function connectDB(){
     try{
-        await mongoose.connect('mongodb+srv://RadioUIT:radiouit@cluster0.eannm.mongodb.net/myFirstDatabase?retryWrites=true&w=majority',option);
+        await mongoose.connect('mongodb+srv://RadioUIT:radiouit@cluster0.eannm.mongodb.net/Music?retryWrites=true&w=majority',option);
         console.log('Connect sucessful!!!!!!!!')
     }catch(e) {
         console.log('Connect failed!!!!!!!!')
