@@ -6,16 +6,15 @@ const Tracks = new Schema({
     nameSong: { type: String, maxlength: 600 },
     url: { type: String, maxlength: 255 },
     mainImg: String,
-    time: Number,
+    duration: Number,
     numberListen: Number,
-    artists: [
-        {
-            idArtist: String,
-            nameArtist: String
-        }
-    ],
+    like: Number,
+    artists: Array,
     country: String,
     type: Array,
+    weeklyViews: Number,
+    likeOfWeek: Number,
+
 },
 {
     timestamps: true,
