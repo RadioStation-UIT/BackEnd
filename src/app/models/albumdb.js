@@ -2,15 +2,10 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const Album = new Schema({
-    idNotification: { type: String, maxlength: 255 },
+    idAlbum: { type: String, maxlength: 255 },
     idTrack: Array,
-    artists: [
-        {
-            idArtist: String,
-            nameArtist: String
-        }
-    ],
-    listener: Number,
+    artists: Array,
+    like: Number,
     name: { type: String, maxlength: 255},
     image: String
 },
