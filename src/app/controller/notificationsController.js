@@ -5,7 +5,6 @@ class notificationController{
     getAllNotification(req,res, next){
         notificationDB.find()
             .then((notification)=>{
-                console.log(notification)
                 res.json(notification)
             })
             .catch(next)

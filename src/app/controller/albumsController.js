@@ -5,7 +5,6 @@ class AlbumController{
     getAllAlbums(req,res, next){
         albumDB.find()
             .then((album)=>{
-                console.log(album)
                 res.json(album)
             })
             .catch(next)

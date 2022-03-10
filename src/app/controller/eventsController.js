@@ -5,7 +5,6 @@ class EventController{
     getAllEvents(req,res, next){
         eventDB.find()
             .then((event)=>{
-                console.log(event)
                 res.json(event)
             })
             .catch(next)

@@ -5,7 +5,6 @@ class ArtistController{
     getAllArtists(req,res, next){
         artistsDB.find()
             .then((artist)=>{
-                console.log(artist)
                 res.json(artist)
             })
             .catch(next)

@@ -5,7 +5,6 @@ class TrackController{
     getTrackAll(req,res, next){
         trackDb.find()
             .then((track)=>{
-                console.log(track)
                 res.json(track)
             })
             .catch(next)
