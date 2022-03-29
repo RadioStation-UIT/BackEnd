@@ -51,6 +51,22 @@ class ArtistController{
             })
         next()
     }
+    //[PUT]
+    dislikeArtists(req,res, next){
+        const liked = req.body.like - 1;
+        artistsDB.updateOne({idArtists: req.body.idArtists}, {$set:{like:liked}})
+            .then(()=>{
+                res.status(200).json({
+                    message: 'disliked'
+                })
+            })
+            .catch(()=>{
+                res.status(200).json({
+                    message: 'fail'
+                })
+            })
+        next()
+    }
 }
 
 module.exports = new ArtistController();

@@ -35,9 +35,9 @@ class userController {
                     user: req.user,
                     avatar: user[0].avatar,
                     blance: user[0].blance,
-                    likeTracks: users[0].likeTracks,
-                    likeArtists: users[0].likeArtists,
-                    likeAlbum: users[0].likeAlbum
+                    likeTracks: user[0].likeTracks,
+                    likeArtists: user[0].likeArtists,
+                    likeAlbum: user[0].likeAlbum
                 })
             })
             .catch(next)
@@ -163,6 +163,23 @@ class userController {
             .catch(() => {
                 console.log('update fail!!')
             })
+    }
+    // put out Artist to user
+    putOutArtistToUser(req, res, next) {
+        UserDB.updateOne({
+                idUser: req.user.idUser
+            }, {
+                $pull: {
+                    likeArtists: req.body.idArtists
+                }
+            })
+            .then(() => {
+                console.log('updated !!')
+            })
+            .catch(() => {
+                console.log('update fail!!')
+            })
+        console.log(123)
     }
     //[GET]
     getMusicByUserId(req, res, next) {}

@@ -30,12 +30,21 @@ DB.connectDB();
 //socket
 
 io.on("connection", socket => {
+  
   socket.on("like-artist", (allArtists, idArtist) => {
     allArtists.map((artist) => {
       return artist.idArtists === idArtist ? artist.like += 1 : artist.like
     })
     allArtists.sort((a, b) => (a.like < b.like) ? 1 : (b.like < a.like) ? -1 : 0)
     io.emit("resend-like-artist", allArtists);
+  })
+
+  socket.on("dislike-artist", (allArtists, idArtist) => {
+    allArtists.map((artist) => {
+      return artist.idArtists === idArtist ? artist.like -= 1 : artist.like
+    })
+    allArtists.sort((a, b) => (a.like < b.like) ? 1 : (b.like < a.like) ? -1 : 0)
+    io.emit("resend-dislike-artist", allArtists);
   })
 })
 
