@@ -11,6 +11,7 @@ const Singer = new Schema({
     description: { type: String, maxlength: 1000 },
     image: String,
     like: Number,
+    type: Array
 },
 {
     timestamps: true,
